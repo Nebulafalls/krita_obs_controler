@@ -4,7 +4,7 @@ import json
 import logging
 import socket
 import threading
-import websocket
+from .websocket import *
 import time
 
 from . import exceptions
@@ -78,7 +78,7 @@ class obsws:
         :return: Nothing
         """
         try:
-            self.ws = websocket.WebSocket()
+            self.ws = WebSocket()
             url = "ws://{}:{}".format(self.host, self.port)
             LOG.info("Connecting to %s..." % (url))
             self.ws.connect(url)
